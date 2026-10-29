@@ -1,0 +1,223 @@
+/* =====================================================
+   PORTFÓLIO · LUDMILA ALVES
+   Para mudar o visual, edite as cores aqui em cima.
+   ===================================================== */
+:root {
+  --ink: #0a090d;     /* fundo */
+  --paper: #f4f0f5;   /* texto */
+  --pink: #f20b78;    /* cor principal */
+  --purple: #a855f7;
+  --cyan: #55e6f5;
+  --line: #3c2749;    /* bordas das seções */
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+img { display: block; max-width: 100%; }
+h1, h2, h3, p { margin: 0; }
+
+/* Idiomas: mostra só o idioma ativo */
+html[data-lang="pt"] [lang="en"],
+html[data-lang="en"] [lang="pt"] { display: none !important; }
+
+/* Ícones */
+.icon { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.neon-button .icon, .outline-button .icon, .project-info .icon { width: 1rem; height: 1rem; }
+
+/* Detalhes que se repetem */
+.site-shell { overflow: hidden; background: radial-gradient(circle at 70% 8%, #29112d 0, transparent 22rem), var(--ink); }
+.section-frame { position: relative; border: 1px solid var(--line); margin: 0 1px 1px; }
+.star, .brand span { color: var(--pink); text-shadow: 0 0 15px var(--pink); }
+.eyebrow { margin-bottom: 1.1rem; color: var(--pink); font: 700 .65rem 'Courier New', monospace; letter-spacing: .2em; }
+.lead { max-width: 500px; margin-top: 2rem; color: #bdb1c1; font-size: .9rem; line-height: 1.65; }
+
+/* Títulos grandes (Georgia) com palavra de destaque em rosa */
+.hero h1, .about h2, .section-heading h2, .services h2, .contact h2 {
+  font: 400 clamp(3.5rem, 6vw, 6.5rem)/.76 Georgia, serif;
+  letter-spacing: -.07em;
+}
+.hero h1 { font-size: clamp(4.5rem, 10vw, 9.5rem); letter-spacing: -.08em; }
+.hero h1 em, .about h2 em, .section-heading h2 em, .services h2 em, .contact h2 em {
+  display: block; margin-left: 1.8rem;
+  color: var(--pink); font-style: italic; text-shadow: 0 0 25px rgba(242, 11, 120, .45);
+}
+.hero h1 em { margin-left: 3.3rem; }
+.hero h1 .star { display: inline-block; margin-left: .5rem; font: 2.2rem Arial; }
+
+/* Botões */
+.neon-button, .outline-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+  min-height: 44px; padding: .75rem 1.4rem;
+  border: 1px solid var(--pink); border-radius: 999px;
+  font: 700 .64rem 'Courier New', monospace; letter-spacing: .04em; transition: .25s ease;
+}
+.neon-button { background: var(--pink); color: #13070e; box-shadow: 0 0 22px rgba(242, 11, 120, .32); }
+.neon-button:hover { background: #ff5aa9; transform: translateY(-2px); }
+.outline-button { color: var(--paper); border-color: #9e3180; }
+.outline-button:hover { color: var(--pink); box-shadow: 0 0 20px rgba(242, 11, 120, .2); }
+
+/* ---------- Cabeçalho ---------- */
+.site-header {
+  position: fixed; z-index: 20; top: 0; left: 0; right: 0; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.25rem, 4vw, 4.5rem);
+  border-bottom: 1px solid rgba(168, 85, 247, .25);
+  background: rgba(10, 9, 13, .78); backdrop-filter: blur(18px);
+}
+.brand { font-size: .72rem; letter-spacing: .12em; font-weight: 700; white-space: nowrap; }
+.nav-links { display: flex; gap: clamp(1rem, 2.4vw, 2.4rem); font: 500 .62rem 'Courier New', monospace; color: #d6ccd9; }
+.nav-links a:hover, .footer-nav a:hover { color: var(--pink); }
+.header-actions { display: flex; align-items: center; gap: 1rem; }
+.language-toggle { display: flex; align-items: center; gap: .3rem; padding: .38rem .7rem; border: 1px solid #77305d; border-radius: 999px; font: 600 .55rem 'Courier New', monospace; }
+.language-toggle button { padding: 0; border: 0; background: none; color: #887b8d; }
+.language-toggle .active { color: var(--pink); }
+.menu-button { display: none; border: 0; background: none; color: var(--paper); }
+.icon-close { display: none; }
+
+/* ---------- Home ---------- */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 45% 55%; align-items: center; padding: 8rem clamp(1.5rem, 7vw, 7rem) 4rem; }
+.hero-copy { position: relative; z-index: 2; max-width: 590px; }
+.hero-description { max-width: 330px; margin: 2.2rem 0; color: #d2cbd6; font-size: .9rem; line-height: 1.65; }
+.hero-visual { position: absolute; top: 0; right: 0; width: 59%; height: 100%; overflow: hidden; }
+.hero-visual img {
+  position: absolute; right: 0; bottom: 0; width: min(78%, 700px); height: 88%;
+  object-fit: cover; object-position: center top; mix-blend-mode: screen;
+  filter: saturate(1.15) contrast(1.05);
+  mask-image: linear-gradient(90deg, transparent 0%, black 25%, black 85%, transparent);
+}
+.hero-glow { position: absolute; inset: 15% 3% 8% 15%; background: radial-gradient(ellipse, rgba(168, 85, 247, .28), transparent 63%); }
+.hero-caption { position: absolute; right: 11%; bottom: 7%; padding: .55rem 1rem; border: 1px solid #6f2e6a; border-radius: 999px; color: #ddd3e0; font: 600 .58rem 'Courier New', monospace; }
+.hero-caption .cyan { color: var(--cyan); }
+.scroll-indicator { position: absolute; bottom: 3rem; left: clamp(1.5rem, 7vw, 7rem); display: flex; flex-direction: column; gap: .35rem; color: #877a8d; font: .55rem 'Courier New', monospace; }
+.scroll-indicator .icon { color: var(--pink); }
+
+/* ---------- Seções (espaçamento) ---------- */
+.about, .projects, .services, .contact { padding: clamp(5rem, 9vw, 9rem) clamp(1.5rem, 7vw, 7rem); }
+
+/* ---------- Sobre ---------- */
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 7vw, 8rem); }
+.about .outline-button { margin-top: 2rem; }
+.facts-panel { position: relative; align-self: center; padding: 1rem 2rem; border: 1px solid #4f2858; border-radius: 14px; background: linear-gradient(135deg, rgba(37, 15, 46, .7), rgba(10, 9, 13, .5)); }
+.fact { display: flex; align-items: center; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid #312039; }
+.fact:last-of-type { border-bottom: 0; }
+.fact > span { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid var(--pink); border-radius: 50%; color: var(--pink); }
+.fact p { color: #e2d8e5; font-size: .72rem; }
+.butterfly { position: absolute; top: -2rem; right: -2.2rem; color: var(--purple); font-size: 4rem; text-shadow: 0 0 20px var(--purple); transform: rotate(30deg); }
+
+/* ---------- Projetos ---------- */
+.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 3rem; }
+.section-heading .lead { max-width: 350px; margin: 0 0 .3rem; font-size: .85rem; line-height: 1.6; }
+.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; counter-reset: projeto; }
+.project-card { counter-increment: projeto; overflow: hidden; border: 1px solid #3e294b; border-radius: 14px; background: #100d14; transition: .3s ease; }
+.project-card:hover { border-color: var(--pink); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(242, 11, 120, .13); }
+.project-image { position: relative; height: 230px; overflow: hidden; }
+.project-image img { width: 100%; height: 100%; object-fit: cover; opacity: .8; filter: saturate(.9); transition: .5s ease; }
+.project-card:hover .project-image img { transform: scale(1.05); filter: saturate(1.25); }
+.project-index { position: absolute; top: 1rem; left: 1rem; color: var(--pink); font: 700 .7rem 'Courier New', monospace; }
+.project-index::before { content: "0" counter(projeto); } /* numeração automática */
+.project-info { padding: 1.4rem; }
+.project-info h3 { color: #f8f2f8; font-size: 1rem; }
+.project-info p { margin: .75rem 0 0; color: #9f92a4; font-size: .75rem; line-height: 1.55; }
+.tag-row { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0; }
+.tag-row span, .stack-list span { padding: .3rem .55rem; border: 1px solid #653d71; border-radius: 999px; color: #d5b8dd; font: .58rem 'Courier New', monospace; }
+.project-info a { display: inline-flex; align-items: center; gap: .3rem; color: var(--pink); font: 700 .65rem 'Courier New', monospace; }
+
+/* ---------- Serviços e tecnologias ---------- */
+.services { background: radial-gradient(circle at 100% 50%, rgba(168, 85, 247, .12), transparent 32rem); }
+.services-intro { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; }
+.services-intro .lead { margin-top: 1rem; }
+.service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 4rem 0 6rem; }
+.service-card { display: flex; align-items: center; gap: 1rem; min-height: 105px; padding: 1.3rem; border: 1px solid #3d2750; border-radius: 12px; }
+.service-card:hover { border-color: var(--pink); }
+.service-card h3 { color: #f8f2f8; font-size: 1rem; }
+.service-card p { margin-top: .4rem; color: #9f92a4; font-size: .75rem; line-height: 1.55; }
+.service-icon { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; border: 1px solid var(--pink); border-radius: 12px; color: var(--pink); }
+.service-arrow { margin-left: auto; color: #77657d; }
+.stack-row { display: grid; grid-template-columns: 30% 1fr; align-items: center; gap: 1.5rem; padding: 1.7rem; border: 1px solid #3d2750; border-radius: 13px; }
+.stack-row h3 { font: 400 1.3rem Georgia, serif; color: #f8f2f8; }
+.stack-list { display: flex; flex-wrap: wrap; gap: .55rem; }
+.stack-list span.cyan { border-color: var(--cyan); color: var(--cyan); }
+
+/* ---------- Contato ---------- */
+.contact {
+  isolation: isolate; display: flex; align-items: center; gap: clamp(2rem, 10vw, 12rem);
+  min-height: 520px; overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 50%, rgba(242, 11, 120, .18), transparent 22rem),
+    radial-gradient(circle at 85% 15%, rgba(85, 230, 245, .1), transparent 18rem),
+    #09080d;
+}
+.contact::before { /* grade em perspectiva */
+  content: ''; position: absolute; inset: 0; z-index: -1; opacity: .5;
+  background-image: linear-gradient(rgba(168, 85, 247, .16) 1px, transparent 1px), linear-gradient(90deg, rgba(168, 85, 247, .16) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(90deg, black, transparent 72%);
+  transform: perspective(500px) rotateX(58deg) scale(1.35) translateY(18%); transform-origin: bottom;
+}
+.contact::after { /* texto de terminal */
+  content: '// CONNECT_NODE 01  ·  SYSTEM ONLINE  ·  CYBER DREAMS';
+  position: absolute; right: clamp(1rem, 7vw, 7rem); bottom: 2rem;
+  color: rgba(85, 230, 245, .72); font: 600 .55rem 'Courier New', monospace; letter-spacing: .16em;
+}
+.chrome-star {
+  position: relative; color: #e9e2ed; font-size: clamp(9rem, 20vw, 18rem); font-weight: 100; line-height: 1;
+  text-shadow: 0 0 8px #fff, 0 0 24px var(--purple), 12px 12px 30px var(--pink); transform: rotate(12deg);
+}
+.chrome-star::after { content: '✦'; position: absolute; inset: 17% 0 0 18%; color: transparent; font-size: .42em; -webkit-text-stroke: 1px var(--cyan); text-shadow: 0 0 18px var(--cyan); transform: rotate(-24deg); }
+.contact-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2rem; }
+
+/* ---------- Rodapé ---------- */
+.footer { display: grid; grid-template-columns: 1.2fr 2fr 1fr; gap: 2rem; padding: 3rem clamp(1.5rem, 7vw, 7rem) 2rem; border-top: 1px solid var(--line); }
+.footer-nav, .socials { display: flex; flex-wrap: wrap; align-content: start; gap: 1rem; color: #b7a9bb; font: .62rem 'Courier New', monospace; }
+.socials { justify-content: flex-end; }
+.socials span { flex-basis: 100%; color: var(--pink); }
+.socials a:hover { color: var(--pink); }
+.socials .icon { width: 1.5rem; height: 1.5rem; }
+.footer > p { grid-column: 1 / -1; padding-top: 1.3rem; border-top: 1px solid #2a1d32; color: #756879; font: .6rem 'Courier New', monospace; }
+
+/* ---------- Celular (até 800px) ---------- */
+@media (max-width: 800px) {
+  .site-header { height: 62px; }
+  .menu-button { display: block; }
+  .site-header.is-open .icon-menu { display: none; }
+  .site-header.is-open .icon-close { display: block; }
+  .nav-links { display: none; position: absolute; top: 62px; left: 0; right: 0; flex-direction: column; gap: 0; padding: 1rem 1.5rem; background: rgba(10, 9, 13, .97); border-bottom: 1px solid var(--line); }
+  .site-header.is-open .nav-links { display: flex; }
+  .nav-links a { padding: .9rem 0; border-bottom: 1px solid #291b31; }
+
+  .hero { display: block; min-height: 850px; padding-top: 10rem; }
+  .hero h1 { font-size: clamp(4rem, 19vw, 7rem); }
+  .hero-description { max-width: 300px; }
+  .hero-visual { top: auto; bottom: 0; width: 100%; height: 55%; }
+  .hero-visual img { width: 100%; height: 100%; }
+  .hero-caption { right: 5%; bottom: 7%; font-size: .48rem; }
+
+  .about, .services-intro, .stack-row { grid-template-columns: 1fr; }
+  .about h2, .section-heading h2, .services h2, .contact h2 { font-size: clamp(3.2rem, 13vw, 5rem); }
+  .facts-panel { margin-top: 1rem; }
+  .section-heading { display: block; }
+  .section-heading .lead { margin-top: 2rem; }
+  .project-grid, .service-grid { grid-template-columns: 1fr; }
+  .project-image { height: 200px; }
+  .service-grid { margin: 3rem 0 4rem; }
+
+  .contact { display: block; min-height: 620px; padding-top: 5rem; }
+  .chrome-star { margin: 0 auto 3rem; text-align: center; font-size: 10rem; }
+  .footer { grid-template-columns: 1fr 1fr; }
+  .footer-nav { flex-direction: column; }
+  .socials { justify-content: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
