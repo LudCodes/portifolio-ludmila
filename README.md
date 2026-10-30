@@ -1,12 +1,12 @@
 
-# ✦ Ludmila Alves | Web Developer & UX Designer
+# ✦ Ludmila Alves | Front-end Developer & UX Designer
 
 <p align="center">
   <strong>Transformando ideias em experiências digitais.</strong>
 </p>
 
 <p align="center">
-  Desenvolvedora Web • Engenharia de Software • UI/UX Design
+  Desenvolvedora front-end • Engenharia de Software • UI/UX Design
 </p>
 
 ---
